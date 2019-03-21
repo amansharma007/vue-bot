@@ -1,14 +1,19 @@
 <template>
   <div>
     <el-container>
-      <el-aside width="200px">
+      <el-aside width="300px">
         <el-row>
           <el-col>
             <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
-              background-color="#545c64" text-color="#fff" active-text-color="#C0BBA9">
-              
-              <img id="insta-icon" v-bind:src="instaIcon">
-              
+              background-color="#545c64" text-color="#fff" active-text-color="#C0BBA9" @select="selectMenu">
+
+
+              <el-row class="logo-head">
+                <el-col :span="4"><img id="insta-icon" src="../assets/instagram-icon.svg"></el-col>
+                <el-col :span="20">
+                  <p>Insta Bot</p>
+                </el-col>
+              </el-row>
               <el-menu-item index="1">
                 <i class="el-icon-circle-plus-outline"></i>
                 <span>Follow</span>
@@ -30,20 +35,31 @@
           </el-col>
         </el-row>
       </el-aside>
-      <el-container>
-        <el-main></el-main>
-        
-      </el-container>
+      <follow v-if="currentIndex === '1'"></follow>
+      <like v-if="currentIndex === '2'"></like>
+      <comment v-if="currentIndex === '3'"></comment>
+      <message v-if="currentIndex === '4'"></message>
     </el-container>
   </div>
 </template>
 
 <script>
+import Follow from './Follow/Follow.vue'
+import Comment from './Comment/Comment.vue'
+import Like from './Like/Like.vue'
+import Message from './Message/Message.vue'
+
   export default {
-    name: 'HelloWorld',
+    name: 'AppLayout',
+    components: {
+      Follow,
+      Comment,
+      Like,
+      Message
+    },
     data() {
       return {
-      instaIcon: 'instagram-icon.svg'
+        currentIndex: '1'
       }
     },
     props: {
@@ -55,6 +71,9 @@
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      selectMenu(selectedIndex){
+        this.currentIndex = selectedIndex + '';
       }
     }
   } 
@@ -64,31 +83,26 @@
 <style scoped>
 
   #insta-icon{
-    width: 200px;    
+    width: 40px;   
+    margin: auto 0;
   }
- .el-header,
- .el-footer {
-   background-color: #B3C0D1;
-   color: #333;
-   text-align: center;
-   line-height: 60px;
- }
+  .logo-head p{
+    font-size: 40px;
+    margin: 0;
+    color: #C0BBA9;
+  }
+  .logo-head{
+    padding: 20px 20px;
+  }
 
  .el-aside {
    background-color: #545c64;
    color: #333;
    text-align: center;
-   line-height: 200px;
  }
  .el-menu-vertical-demo {
    text-align: left;
    height: 100vh;
  }
 
- .el-main {
-   background-color: #EFEBDE;
-   color: #333;
-   text-align: center;
-   line-height: 160px;
- }
 </style>
