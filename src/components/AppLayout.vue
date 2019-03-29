@@ -32,6 +32,12 @@
               </el-menu-item>
 
             </el-menu>
+            <el-menu class="bottom-menu" background-color="#545c64" text-color="#fff" active-text-color="#C0BBA9">
+              <el-menu-item>
+                <i class="el-icon-setting"></i>
+                <span>Instagram Credentials</span>
+              </el-menu-item>
+            </el-menu>
           </el-col>
         </el-row>
       </el-aside>
@@ -81,7 +87,11 @@ import Message from './Message/Message.vue'
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .bottom-menu{
+    position: absolute;
+    border: none;
+    bottom: 0;
+  }
   #insta-icon{
     width: 40px;   
     margin: auto 0;

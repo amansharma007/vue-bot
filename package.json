@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "nodemon server/index.js",
+    "start": "node server/index.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
@@ -11,7 +13,13 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.16",
     "@fortawesome/free-solid-svg-icons": "^5.8.0",
     "@fortawesome/vue-fontawesome": "^0.1.6",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "element-ui": "^2.6.1",
+    "express": "^4.16.4",
+    "mongodb": "^3.2.2",
+    "puppeteer": "^1.13.0",
     "vue": "^2.6.6",
     "vuex": "^3.1.0"
   },
@@ -23,6 +31,7 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.9.2",
+    "nodemon": "^1.18.10",
     "sass-loader": "^7.0.3",
     "vue-cli-plugin-element": "^1.0.1",
     "vue-template-compiler": "^2.5.21"
