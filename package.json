@@ -18,10 +18,16 @@
     "cors": "^2.8.5",
     "element-ui": "^2.6.1",
     "express": "^4.16.4",
+    "firebase": "^5.10.0",
+    "firebase-admin": "^6.1.0",
+    "http2": "^3.3.7",
     "mongodb": "^3.2.2",
     "puppeteer": "^1.13.0",
+    "shuffle-array": "^1.0.1",
     "vue": "^2.6.6",
-    "vuex": "^3.1.0"
+    "vuefire": "^1.4.5",
+    "vuex": "^3.1.0",
+    "ws": "^6.2.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",

@@ -12,10 +12,11 @@
             </el-form-item>
           </el-col>
           <el-col :span="2">
-            <el-button @click="getProfiles">Get Profiles</el-button>
+            <el-button type="success" @click="automate">Like & Follow</el-button>
           </el-col>
         </el-form-item>
       </el-form>
+      <h1>Following Profiles</h1>
       <profiles-component></profiles-component>
     </el-main>
   </el-container>
@@ -36,13 +37,14 @@ export default {
     }
   },
   computed: {
-    hashtagList: function(){
+    hashtagList: function(){ //This is the array of hashtags
       return this.hashtags.split(",");
     }
   },
   methods: {
-    getProfiles: function(){
-      
+    automate: function(){
+      //get profiles from hashtags
+      //input 
     }
   }
 }

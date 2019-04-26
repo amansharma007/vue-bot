@@ -1,12 +1,12 @@
 <template>
 <div>
+  {{profiles}}
     <el-table
       :data="profiles"
       style="width: 100%">
       <el-table-column
-        prop="createdAt"
-        label="Date"
-        width="180">
+        type="selection"
+        width="80">
       </el-table-column>
       <el-table-column
         prop="profileName"
@@ -18,23 +18,16 @@
 </template>
 
 <script>
-import ProfilesService from  '../services/ProfilesService'
-
+import { followingRef } from '../firebase';
 export default {
   name: 'ProfilesComponent',
   data(){
       return {
-          profiles: [],
           error: ''
       }
   },
-  async created(){
-      try {
-          this.profiles = await ProfilesService.getProfiles();
-          console.log(this.profiles);
-      } catch(err){
-          this.error = err.message;
-      }
+  firebase: {
+    profiles: followingRef
   }
 }
 </script>

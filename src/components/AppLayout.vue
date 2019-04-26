@@ -4,7 +4,7 @@
       <el-aside width="300px">
         <el-row>
           <el-col>
-            <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+            <el-menu default-active="1" class="el-menu-vertical-demo"
               background-color="#545c64" text-color="#fff" active-text-color="#C0BBA9" @select="selectMenu">
 
 
@@ -16,23 +16,19 @@
               </el-row>
               <el-menu-item index="1">
                 <i class="el-icon-circle-plus-outline"></i>
-                <span>Follow</span>
+                <span>Like and Follow</span>
               </el-menu-item>
               <el-menu-item index="2">
-                <i class="el-icon-circle-check-outline"></i>
-                <span>Like</span>
-              </el-menu-item>
-              <el-menu-item index="3">
                 <i class="el-icon-edit"></i>
                 <span>Comment</span>
               </el-menu-item>
-              <el-menu-item index="4">
+              <el-menu-item index="3">
                 <i class="el-icon-message"></i>
                 <span>Message</span>
               </el-menu-item>
 
             </el-menu>
-            <el-menu class="bottom-menu" background-color="#545c64" text-color="#fff" active-text-color="#C0BBA9">
+            <el-menu class="bottom-menu" background-color="#545c64" text-color="#fff" active-text-color="#C0BBA9" @select="openSettings">
               <el-menu-item>
                 <i class="el-icon-setting"></i>
                 <span>Instagram Credentials</span>
@@ -41,27 +37,27 @@
           </el-col>
         </el-row>
       </el-aside>
-      <follow v-if="currentIndex === '1'"></follow>
-      <like v-if="currentIndex === '2'"></like>
-      <comment v-if="currentIndex === '3'"></comment>
-      <message v-if="currentIndex === '4'"></message>
+      <like-follow v-if="currentIndex === '1'"></like-follow>
+      <comment v-if="currentIndex === '2'"></comment>
+      <message v-if="currentIndex === '3'"></message>
+      <instagram-settings v-if="currentIndex === 'settings'"></instagram-settings>
     </el-container>
   </div>
 </template>
 
 <script>
-import Follow from './Follow/Follow.vue'
+import LikeFollow from './LikeFollow/LikeFollow.vue'
 import Comment from './Comment/Comment.vue'
-import Like from './Like/Like.vue'
 import Message from './Message/Message.vue'
+import InstagramSettings from './Settings/InstagramSettings.vue'
 
   export default {
     name: 'AppLayout',
     components: {
-      Follow,
+      LikeFollow,
       Comment,
-      Like,
-      Message
+      Message,
+      InstagramSettings
     },
     data() {
       return {
@@ -72,14 +68,11 @@ import Message from './Message/Message.vue'
       msg: String
     },
     methods: {
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      },
       selectMenu(selectedIndex){
         this.currentIndex = selectedIndex + '';
+      },
+      openSettings(){
+        this.currentIndex = 'settings';
       }
     }
   } 
