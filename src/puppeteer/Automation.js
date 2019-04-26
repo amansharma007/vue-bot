@@ -9,7 +9,7 @@ class Automation {
         const puppeteer = require('puppeteer');
         this.browser = await puppeteer.launch({
             headless: this.config.settings.headless,
-            args: ['--no-sandbox'],
+            args: ['--no-sandbox', '--start-fullscreen'],
         });
         this.page = await this.browser.newPage();
         this.page.setViewport({width: 1500, height: 764});

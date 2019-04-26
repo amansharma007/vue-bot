@@ -1,4 +1,4 @@
-const Bot = require('./Automation.js');// this directly imports the Bot/index.js file
+const Bot = require('./Automation.js');
 const config = require('./config/puppeteer');
 
 const run = async () => {

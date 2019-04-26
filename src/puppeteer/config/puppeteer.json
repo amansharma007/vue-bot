@@ -7,7 +7,7 @@
       "run_every_x_hours": 3,
       "like_ratio": 0.75,
       "unfollow_after_days": 2,
-      "headless": true
+      "headless": false
     },
     "selectors": {
       "home_to_login_button": ".izU2O a",

@@ -1,8 +1,8 @@
 <template>
 <div>
-  {{profiles}}
     <el-table
-      :data="profiles"
+      :max-height="500"
+      :data="usernameList"
       style="width: 100%">
       <el-table-column
         type="selection"
@@ -18,16 +18,32 @@
 </template>
 
 <script>
-import { followingRef } from '../firebase';
+import {
+  db
+} from '../firebase';
 export default {
   name: 'ProfilesComponent',
-  data(){
-      return {
-          error: ''
+  data() {
+    return {
+      error: ''
+    }
+  },
+  computed: {
+    usernameList: function () {
+      let arr = [];
+      if (this.profiles) {
+        this.profiles.forEach(function (element) {
+          arr.push({profileName: element.username});
+        });
       }
+      return arr;
+    }
   },
   firebase: {
-    profiles: followingRef
+    profiles: db.ref('following')
+  },
+  methods: {
+
   }
 }
 </script>
