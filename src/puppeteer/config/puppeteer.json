@@ -1,7 +1,7 @@
 {
     "base_url": "https://www.instagram.com",
-    "username": "drops_of_spirituality",
-    "password": "spirituality1234",
+    "username": "<USERNAME>",
+    "password": "<PASSWORD>",
     "hashTags": ["spirituality","spiritualityawake","spiritualityquotes"],
     "settings": {
       "run_every_x_hours": 3,
